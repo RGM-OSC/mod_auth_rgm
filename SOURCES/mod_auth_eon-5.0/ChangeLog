@@ -1,0 +1,166 @@
+2016-05-18  Jean-Philippe Levy <jeanphilippe.levy@gmail.com>
+
+	* mod_auth_eon 5.0-1
+	* src/mod_auth_eon.c
+	(auth_eon_session_checker_cb) r->user size fix
+	(auth_eon_session_checker_cb) new remoteUser dir option
+	(auth_eon_default_user) new defaultUser global option
+
+2016-05-04  Michael Aubertin <michael.aubertin@gmail.com>
+
+	* mod_auth_eon 5.0-0
+
+2016-04-07  Jeremie Bernard <gremimail@gmail.com>
+
+	* mod_auth_eon 4.2-3
+
+	* src/mod_auth_eon.c
+	(Module's Directory paramters) renamed from AuthFormX to AuthEonX
+	(form_check_required) removed func due to module's EoN condition
+	specialization and ap_requires Apache 2.4 API removal 
+	(get_gids) removed as well
+	(whole functions) renamed to auth_eon_x
+
+	* autotools regeneration
+
+2007-01-08  Aaron Arthurs  <ajarthu@uark.edu>
+
+	* mod_auth_form 2.05 released
+
+	* src/mod_auth_form.c
+	(send_query): BUGFIX Factor in byte-size of a pointer;
+	(parse_condition_vars): BUGFIX Escape apostrophes;
+	(get_value): BUGFIX URL-decode the returned value;
+	(construct_full_uri): BUGFIX Check for the X-Forwarded-Server header field;
+	(<GLOBAL>): Removed variables r, config, db_handle;
+	(<GLOBAL>): Modified auth_form_cmds;
+	[MAF_MYSQL_SSL]: New;
+	(set_cgi_env_directory): Added parameter r;
+	(form_check_session): Added parameters r, config, and db_handle;
+	(form_check_required): Added parameters r, config, and db_handle;
+	(get_gids): Added parameters r, config, and db_handle;
+	(track_request): Added parameters r, config, and db_handle;
+	(open_db): Added parameters r, config, and db_handle;
+	(close_db): Added parameter db_handle;
+	(send_query): Added parameters r and db_handle;
+	(redirect): Added parameters r and config;
+	(parse_condition_vars): Added parameter r;
+	(get_value): Added parameter r;
+	(construct_full_uri): Added parameter r;
+	(url_encode): Added parameter r;
+	(url_decode): New;
+	(create_auth_form_dir_config): Localized config;
+	(form_authenticator): Localized config;
+
+	* configure.ac
+	(<ALL>): Removed --enable-thread-safe argument;
+	(<ALL>): Added check for libpthread and libmysqlclient_r;
+	(<ALL>): Added check for mysql_ssl_set in libmysqlclient*;
+
+
+2006-06-24  Aaron Arthurs  <ajarthu@uark.edu>
+
+  * mod_auth_form 2.04 released
+  
+  * src/mod_auth_form.c
+  (auth_form_cmds, create_auth_form_dir_config)
+  (open_db): Support AuthFormMySQLSocket and AuthFormMySQLSSL*;
+  (auth_form_cmds): Change from APR_XtOffsetOf to APR_OFFSETOF;
+  (construct_full_uri): Change from ap_http_method to ap_http_scheme;
+
+	* configure.in: Removed;
+
+	* configure.ac: New;
+
+
+2005-10-13  Aaron Arthurs  <ajarthu@uark.edu>
+
+  * mod_auth_form 2.03 released
+  
+  * src/mod_auth_form.c
+  (get_value): BUGFIX Made variable search more restrictive;
+  (form_session_checker): BUGFIX Return Forbidden for failed MySQL connections;
+  (form_check_session, redirect, construct_full_uri): Use apr_pstrcat
+  						    instead;
+  (set_cgi_env_directory): New;
+  (form_session_checker, set_cgi_env_directory): Set environment
+  					       variables;
+  (create_auth_form_dir_config): Defaulted AuthFormMySQLHost to NULL;
+  (auth_form_cmds, create_auth_form_dir_config)
+  (open_db): Support AuthFormMySQLPort;
+  (open_db): Use mysql_ping() to test existing connection;
+  (auth_form_cmds, create_auth_form_dir_config)
+  (form_check_session): Support AuthFormSessionDelete;
+  (form_authenticator, form_session_checker): Added DECLINED check for
+  					    AuthFormPageLogin;
+  (url_encode): Removed 'always true' expressions for unsigned char type;
+  (construct_relative_uri): New;
+  (<ALL>): Qualified char types as unsigned;
+  (<ALL>): Added debug messages;
+  [MAF_DEBUG, PSTRCAT, PSPRINTF, MAF_VERSION, MAF_DESC]: New;
+  [TRUE, FALSE]: Test for existence before definition;
+
+
+2005-06-21  Aaron Arthurs  <ajarthu@uark.edu>
+
+	* mod_auth_form 2.02 released
+	
+	* ../src/mod_auth_form.c
+	(create_auth_form_dir_config): BUGFIX Defaulted AuthFormMySQLFieldGID
+				       to 'gid';
+	(form_check_required): BUGFIX Removed AuthFormMySQLTableGID
+			       Requirement;
+	(db_result): Removed structure definition;
+	(q_result): Added structure definition;
+	(auth_form_config_rec, mysql_handle): Removed global;
+	(auth_form_dir_config, config, db_handle, r): Added global;
+	(auth_form_cmds): Support AuthFormLastPageKey, AuthFormPageAutoRefresh,
+			  AuthFormSessionAutoRefresh;
+	(do_nothing, form_auth_checker, get_mysql_gids): Removed function;
+	(form_authenticator, form_session_checker, get_gids): Added function;
+	(redirect): Added 'log_level' parameter;
+	(form_check_required, form_check_session): Removed 'r' parameter;
+	(open_db, parse_condition_vars, redirect, send_query, track_request)
+	(form_check_required, form_check_session): Removed 'config' parameter;
+	(open_db, track_request)
+	(get_value): Removed 'pool' parameter;
+
+
+2005-02-14  Aaron Arthurs  <ajarthu@uark.edu>
+
+	* mod_auth_form 2.01 released
+	
+	* ../src/mod_auth_form.c
+	(parse_condition_vars): BUGFIX Missing Braces;
+	(parse_condition_vars): BUGFIX Lost Space After Value Replacement;
+	(redirect): Added URI to Log;
+	(track_request): Pass Tracking Condition to 'parse_condition_vars';
+	(get_mysql_gids): Pass GID Condition to 'parse_condition_vars';
+	(form_check_required): Removed URI from 'redirect';
+
+
+2004-12-26  Aaron Arthurs  <ajarthu@uark.edu>
+
+	* mod_auth_form 2.0 released;
+	
+	* ../src/mod_auth_form.c (form_auth_checker, form_check_session)
+	(parse_condition_vars)
+	(create_auth_form_dir_config): Support AuthFormMySQLTableSIDCondition;
+	(parse_condition_vars): New Function;
+	(form_check_session): Return char * 'UID';
+	(register_hooks): Change module's priority to 'REALLY FIRST';
+	(get_mysql_uid, child_exit): Removed Function;
+	(crypt) [!APR_HAVE_CRYPT_H]: Removed Definition;
+	(crypt) [APR_HAVE_CRYPT_H]: Removed External Function;
+	(auth_form_config_rec): Removed 3 deprecated members;
+	(auth_form_cmds): Removed 3 deprecated elements;
+	[!STANDARD20_MODULE_STUFF]: Removed;
+	
+	* configure.in: New;
+	
+	* Makefile.am: New;
+	
+
+2004-07-25  Aaron Arthurs  <ajarthu@uark.edu>
+
+	* mod_auth_form 1.0 released

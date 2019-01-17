@@ -1,0 +1,81 @@
+mod_auth_eon
+Apache2 Form-Based Authorization Module
+----------------------------------------
+
+Overview
+--------
+
+This module is a form-based authorization module based on 
+'mod_auth_mysql' and 'mod_auth_sim'. It is used to place access
+restrictions on a per-directory, per-user-request basis using
+session management. The module uses a MySQL database to retrieve
+users' group membership, maintain and validate users' sessions,
+and optionally track user activity.
+
+The mechanics of the module works in the following way. A web
+client (user) requests for a restricted page/directory. The module
+sends back a 'Page Has Moved' error, pointing the client to the page
+containing a login form. Through server-side scripting, a session is
+created in the MySQL database and the client (i.e. cookies or query
+string). The session itself consists of a unique, random, and temporary
+ID that is associated with a user. The client then makes the same
+request along with the session ID (SID) and the user ID (UID). The
+module compares and validates the two IDs against the IDs stored in the
+MySQL database. If successful, the module sends back the requested
+page; otherwise, the module once again sends back the 'Page Has Moved'
+error page. In addition (if specified), the module will also validate
+the user's group membership and act accordingly.
+
+
+Requirements
+------------
+- Apache 2.4 Web Server
+-- With Runtime Library (apr0 or apr1)
+- MySQL 5.5 or greater
+- Server-Side Scripting Processor
+-- Comes with MySQLi-Capable API
+
+
+Installation
+------------
+Please refer to INSTALL
+
+
+Configuration
+-------------
+Please refer to https://github.com/EyesOfNetworkCommunity/mod_auth_eon
+
+
+Files In This Directory (Not Counting the AutoConf/AutoMake Generated Files)
+----------------------------------------------------------------------------
+autom4/
+	Contains various automake/autoconf support files.
+
+src/
+	Contains mod_auth_eon's source code.
+
+win32/
+	Contains Visual Studio files for building under a
+	Windows environment.
+
+AUTHORS
+	The authors who contributed to mod_auth_eon.
+
+ChangeLog
+	Record of changes made to mod_auth_eon. 
+
+configure.in
+	Input file for 'autoconf' to generate 'autom4te.cache
+	and 'configure'.
+
+COPYING
+	Apache2 License Agreement.
+
+Makefile.am
+	Input file for 'automake' to generate 'Makefile.in'.
+
+NEWS
+	User visible changes made to mod_auth_eon.
+
+README
+	This file.

@@ -1,0 +1,140 @@
+2016-05-18  Jean-Philippe Levy <jeanphilippe.levy@gmail.com>
+  *mod_auth_eon 5.0-1:
+  - src/mod_auth_eon.c
+  -- (auth_eon_session_checker_cb) r->user size fix
+  -- (auth_eon_session_checker_cb) new remoteUser dir option
+  -- (auth_eon_default_user) new defaultUser global option
+
+2016-05-04  Michael Aubertin <michael.aubertin@gmail.com>
+  *mod_auth_eon 5.0-0:
+
+2016-04-07  Jeremie Bernard <gremimail@gmail.com>
+  *mod_auth_eon 4.2-3:
+  - src/mod_auth_eon.c
+  --(Module's Directory paramters) renamed from AuthFormX to AuthEonX
+  --(form_check_required) removed func due to module's EoN condition
+    specialization and ap_requires Apache 2.4 API removal
+  --(get_gids) removed as well
+  --(whole functions) renamed to auth_eon_x
+  - autotools regeneration
+
+2007-01-08  Aaron Arthurs  <ajarthu@uark.edu>
+  *mod_auth_form 2.05:
+  - BUGFIXES:
+    -- BUG #7: MySQL SSL directives mismatch the internal data structure
+       FIX: Matched the MySQL SSL directives
+    -- BUG #8: Query string/cookie values are not decoded
+       FIX: URL-decode the query string/cookie values 
+    -- BUG #9: The apostrophe from the query string/cookie values is
+       not escaped
+       FIX: Backslash apostrophes
+    -- BUG #10: Memory under-allocation for MySQL record results
+       FIX: Factor in the byte-size of pointers
+       (thanks Peter Schlaf <peter.schlaf@web.de>)
+    -- BUG #11: Reverse proxys are not detected during redirections
+       FIX: Detect and read X-Forwarded-Server as the hostname
+       (thanks Peter Schlaf <peter.schlaf@web.de>)
+    -- BUG #12: Unneeded global variables are causing thread-safety issues
+       FIX: Removed unneeded global variables in favor of function parameters
+  - configure:
+  -- Look for apr_hooks.h for RPM-layout compatibility
+  -- Check for libmysqlclient_r (thread-safe MySQL library)
+  -- Check for SSL support in the MySQL library
+
+
+2006-06-24  Aaron Arthurs  <ajarthu@uark.edu>
+  *mod_auth_form 2.04:
+  - Apache 2.2.x compatibility fixes:
+  -- Use APR_OFFSETOF instead of APR_XtOffsetOf
+  -- Use ap_http_scheme instead of ap_http_method
+  - Added AuthFormMySQLSocket
+  - Added MySQL SSL support
+  -- AuthFormMySQLSSL
+  -- AuthFormMySQLSSLKey
+  -- AuthFormMySQLSSLCert
+  -- AuthFormMySQLSSLCA
+  -- AuthFormMySQLSSLCAPath
+  -- AuthFormMySQLSSLCipherList
+  - Upgraded to aclocal-1.9
+  - Added libtool versioning
+  - 'make install' no longer:
+  -- Restarts the Apache2 server
+  -- Edits the main Apache2 configuration file
+
+
+2005-10-13  Aaron Arthurs  <ajarthu@uark.edu>
+  *mod_auth_form 2.03:
+  - BUGFIXES:
+    -- BUG #5: Similiarly named variables in condition statements
+       are interpreted as the same variable
+       FIX: Made the variable parser for the query string/cookie
+       more restrictive
+       (thanks Andrei Nazarenko <a.nazarenko@gmail.com>)
+    -- BUG #6: When the module cannot connect to a MySQL server,
+       it allows everyone access to restricted pages
+       FIX: The module sends a FORBIDDEN message when it
+       cannot connect to a MySQL server
+  - Set some CGI environment variables
+    -- AP_MAF_VERSION
+    -- AP_MAF_DESCRIPTION
+    -- AP_MAF_ENABLED
+    -- AP_MAF_UID
+  - Added AuthFormMySQLPort
+  - Added AuthFormSessionDelete
+  - if AuthFormPageLogin is not specified, the module passes
+    authorization to other modules
+  - Made the 'configure' script friendlier
+
+
+2005-06-21  Aaron Arthurs  <ajarthu@uark.edu>
+  *mod_auth_form 2.02:
+  - BUGFIXES:
+    -- BUG #3: AuthFormMySQLFieldGID does not default to 'gid'
+       FIX: Defaulted AuthFormMySQLFieldGID to 'gid'
+    -- BUG #4: When using 'Require user user1 user2 ...',
+       AuthFormMySQLFieldGID must be specified
+       FIX: Removed check for AuthFormMySQLFieldGID
+       (thanks Andrei Nazarenko <a.nazarenko@gmail.com>)
+  - Added auto-refresh feature
+    -- AuthFormSessionAutoRefresh
+    -- AuthFormPageAutoRefresh
+  - Added 'last visited, unauthorized page' feature
+    -- AuthFormLastPageKey
+  - For group management, extract GIDs from all records
+    (not just one) with matching UIDs
+
+
+2005-02-14  Aaron Arthurs  <ajarthu@uark.edu>
+  *mod_auth_form 2.01:
+  - BUGFIXES:
+    -- BUG #1: Users are sometimes redirected to the login page
+       during a valid session.
+       FIX: Added missing braces in 'parse_condition_vars'
+       (thanks Martin Daur <m.daur@beam.ag>)
+    -- BUG #2: Some spaces are lost during the variable parsing
+       FIX: Changed some of the logic in 'parse_condition_vars'
+       during variable mode
+  - Passed the Tracking and GID table conditions to
+    'parse_condition_vars'
+
+
+2004-12-26  Aaron Arthurs  <ajarthu@uark.edu>
+  * mod_auth_form 2.0:
+  - Removed the following directives.
+    -- AuthFormMySQLFieldSID
+    -- AuthFormSessionKeyUID
+    -- AuthFormSessionKeySID
+  - Changed the module's priority in Apache to 'REALLY FIRST' as
+    opposed to 'MIDDLE'.
+  - Added MySQL grouping (parenthesis) to the conditions 'AuthFormMySQLTableCondition' and 'AuthFormMySQLTableSIDCondition'.
+  - Re-defined 'AuthFormMySQLTableSIDCondition' as being the session validation condition.
+    -- Set its default value to "sid=$sid AND uid=$uid".
+  - Added value placeholder capabilities for the condition directives.
+  - Took out some extraneous functions and definitions.
+  - Took out '!STANDARD20_MODULE_STUFF' conditional code.
+
+  * Unix distribution: created automake/autoconf files.
+
+
+2004-07-25  Aaron Arthurs  <ajarthu@uark.edu>
+  * mod_auth_form 1.0: programmed for MySQL 4.1+ and Apache 2.x.
