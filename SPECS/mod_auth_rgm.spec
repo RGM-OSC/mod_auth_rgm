@@ -23,7 +23,7 @@ This version has ported the initial module to be compliant with the new Apache 2
 %setup -q
 
 %build
-%configure MYSQLCLIENT_LIBPATH=/usr/lib64 APACHE2_INCLUDE=/usr/include/httpd/ CFLAGS="`apr-1-config --cppflags --cflags`"
+bash %configure MYSQLCLIENT_LIBPATH=/usr/lib64 APACHE2_INCLUDE=/usr/include/httpd/ CFLAGS="`apr-1-config --cppflags --cflags`"
 make
 
 %install
