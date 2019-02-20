@@ -6,7 +6,7 @@ Group: System Environment/Daemons
 License: Apache Software License
 URL: http://www.eyesofnetwork.com/
 
-Source: mod_auth_rgm-%{version}-src.tar.gz
+Source: mod_auth_rgm-%{version}.tar.gz
 Source1: auth_rgm.conf
 Source2: 10-auth_rgm.conf
 
