@@ -1,5 +1,5 @@
-Summary: Apache2 EoN Authorization
-Name: mod_auth_eon
+Summary: Apache2 RGM Authorization
+Name: mod_auth_rgm
 Version: 5.0
 Release: 2.rgm
 Group: System Environment/Daemons
