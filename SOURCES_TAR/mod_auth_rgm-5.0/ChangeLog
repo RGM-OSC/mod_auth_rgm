@@ -1,25 +1,25 @@
 2016-05-18  Jean-Philippe Levy <jeanphilippe.levy@gmail.com>
 
-	* mod_auth_eon 5.0-1
-	* src/mod_auth_eon.c
-	(auth_eon_session_checker_cb) r->user size fix
-	(auth_eon_session_checker_cb) new remoteUser dir option
-	(auth_eon_default_user) new defaultUser global option
+	* mod_auth_rgm 5.0-1
+	* src/mod_auth_rgm.c
+	(auth_rgm_session_checker_cb) r->user size fix
+	(auth_rgm_session_checker_cb) new remoteUser dir option
+	(auth_rgm_default_user) new defaultUser global option
 
 2016-05-04  Michael Aubertin <michael.aubertin@gmail.com>
 
-	* mod_auth_eon 5.0-0
+	* mod_auth_rgm 5.0-0
 
 2016-04-07  Jeremie Bernard <gremimail@gmail.com>
 
-	* mod_auth_eon 4.2-3
+	* mod_auth_rgm 4.2-3
 
-	* src/mod_auth_eon.c
+	* src/mod_auth_rgm.c
 	(Module's Directory paramters) renamed from AuthFormX to AuthEonX
 	(form_check_required) removed func due to module's EoN condition
 	specialization and ap_requires Apache 2.4 API removal 
 	(get_gids) removed as well
-	(whole functions) renamed to auth_eon_x
+	(whole functions) renamed to auth_rgm_x
 
 	* autotools regeneration
 

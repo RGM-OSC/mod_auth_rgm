@@ -59,10 +59,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/mod_auth_eon
-pkgincludedir = $(includedir)/mod_auth_eon
-pkglibdir = $(libdir)/mod_auth_eon
-pkglibexecdir = $(libexecdir)/mod_auth_eon
+pkgdatadir = $(datadir)/mod_auth_rgm
+pkgincludedir = $(includedir)/mod_auth_rgm
+pkglibdir = $(libdir)/mod_auth_rgm
+pkglibexecdir = $(libexecdir)/mod_auth_rgm
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -197,7 +197,7 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /data/eonsrc/SOURCES/mod_auth_eon-5.0/autom4/missing aclocal-1.13
+ACLOCAL = ${SHELL} /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/autom4/missing aclocal-1.13
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 APACHE2_INCLUDE = /usr/include/httpd/
@@ -209,9 +209,9 @@ APR1_PREFIX = /usr
 APR_INCLUDE = /usr/include/apr-1
 APXS = /usr/bin/apxs
 AR = ar
-AUTOCONF = ${SHELL} /data/eonsrc/SOURCES/mod_auth_eon-5.0/autom4/missing autoconf
-AUTOHEADER = ${SHELL} /data/eonsrc/SOURCES/mod_auth_eon-5.0/autom4/missing autoheader
-AUTOMAKE = ${SHELL} /data/eonsrc/SOURCES/mod_auth_eon-5.0/autom4/missing automake-1.13
+AUTOCONF = ${SHELL} /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/autom4/missing autoconf
+AUTOHEADER = ${SHELL} /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/autom4/missing autoheader
+AUTOMAKE = ${SHELL} /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/autom4/missing automake-1.13
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -223,7 +223,7 @@ CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"mod_auth_eon\" -DVERSION=\"5.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_LIBZ=1 -DMAF_MYSQL_SSL=\"1\" -DHAVE_STRCHR=1 -DHAVE_STRRCHR=1 -DHAVE_STRSTR=1 -DHAVE_STRTOL=1
+DEFS = -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"mod_auth_rgm\" -DVERSION=\"5.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_LIBZ=1 -DMAF_MYSQL_SSL=\"1\" -DHAVE_STRCHR=1 -DHAVE_STRRCHR=1 -DHAVE_STRSTR=1 -DHAVE_STRTOL=1
 DEPDIR = .deps
 DLLTOOL = false
 DSYMUTIL = 
@@ -248,7 +248,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /data/eonsrc/SOURCES/mod_auth_eon-5.0/autom4/missing makeinfo
+MAKEINFO = ${SHELL} /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/autom4/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 MYSQLCLIENT_LIB = mysqlclient_r
@@ -262,7 +262,7 @@ OBJDUMP = objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
-PACKAGE = mod_auth_eon
+PACKAGE = mod_auth_rgm
 PACKAGE_BUGREPORT = 
 PACKAGE_NAME = 
 PACKAGE_STRING = 
@@ -276,10 +276,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = strip
 VERSION = 5.0
-abs_builddir = /data/eonsrc/SOURCES/mod_auth_eon-5.0
-abs_srcdir = /data/eonsrc/SOURCES/mod_auth_eon-5.0
-abs_top_builddir = /data/eonsrc/SOURCES/mod_auth_eon-5.0
-abs_top_srcdir = /data/eonsrc/SOURCES/mod_auth_eon-5.0
+abs_builddir = /data/rgmsrc/SOURCES/mod_auth_rgm-5.0
+abs_srcdir = /data/rgmsrc/SOURCES/mod_auth_rgm-5.0
+abs_top_builddir = /data/rgmsrc/SOURCES/mod_auth_rgm-5.0
+abs_top_srcdir = /data/rgmsrc/SOURCES/mod_auth_rgm-5.0
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -309,7 +309,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /data/eonsrc/SOURCES/mod_auth_eon-5.0/autom4/install-sh
+install_sh = ${SHELL} /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/autom4/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -794,11 +794,11 @@ uninstall-am: uninstall-local
 
 install-exec-hook:
 	if test "$(APXS)" != "no"; then \
-		$(APXS) -i -n auth_eon src/mod_auth_eon.la; \
+		$(APXS) -i -n auth_rgm src/mod_auth_rgm.la; \
 	fi
 
 uninstall-local:
-	rm -f `$(APXS) -q LIBEXECDIR`/mod_auth_eon*;
+	rm -f `$(APXS) -q LIBEXECDIR`/mod_auth_rgm*;
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

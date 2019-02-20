@@ -1,4 +1,4 @@
-mod_auth_eon
+mod_auth_rgm
 Apache2 Form-Based Authorization Module
 ----------------------------------------
 
@@ -43,7 +43,7 @@ Please refer to INSTALL
 
 Configuration
 -------------
-Please refer to https://github.com/EyesOfNetworkCommunity/mod_auth_eon
+Please refer to https://github.com/EyesOfNetworkCommunity/mod_auth_rgm
 
 
 Files In This Directory (Not Counting the AutoConf/AutoMake Generated Files)
@@ -52,17 +52,17 @@ autom4/
 	Contains various automake/autoconf support files.
 
 src/
-	Contains mod_auth_eon's source code.
+	Contains mod_auth_rgm's source code.
 
 win32/
 	Contains Visual Studio files for building under a
 	Windows environment.
 
 AUTHORS
-	The authors who contributed to mod_auth_eon.
+	The authors who contributed to mod_auth_rgm.
 
 ChangeLog
-	Record of changes made to mod_auth_eon. 
+	Record of changes made to mod_auth_rgm. 
 
 configure.in
 	Input file for 'autoconf' to generate 'autom4te.cache
@@ -75,7 +75,7 @@ Makefile.am
 	Input file for 'automake' to generate 'Makefile.in'.
 
 NEWS
-	User visible changes made to mod_auth_eon.
+	User visible changes made to mod_auth_rgm.
 
 README
 	This file.

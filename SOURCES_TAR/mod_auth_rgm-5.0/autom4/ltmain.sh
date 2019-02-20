@@ -6810,7 +6810,7 @@ func_mode_link ()
 		    *-*-unixware7*) add_dir="-L$dir" ;;
 		  *-*-darwin* )
 		    # if the lib is a (non-dlopened) module then we can not
-		    # link against it, someone is ignoring the earlier warnings
+		    # link against it, somrgme is ignoring the earlier warnings
 		    if /usr/bin/file -L $add 2> /dev/null |
 			 $GREP ": [^:]* bundle" >/dev/null ; then
 		      if test "X$dlopenmodule" != "X$lib"; then

@@ -2,10 +2,10 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.59)
-AC_INIT(src/mod_auth_eon)
+AC_INIT(src/mod_auth_rgm)
 AC_CONFIG_AUX_DIR(autom4)
-AC_CONFIG_SRCDIR([src/mod_auth_eon.c])
-AM_INIT_AUTOMAKE(mod_auth_eon, 5.0)
+AC_CONFIG_SRCDIR([src/mod_auth_rgm.c])
+AM_INIT_AUTOMAKE(mod_auth_rgm, 5.0)
 
 # Set some argument variables.
 AC_ARG_VAR(APACHE2_PREFIX, [Base path containing the Apache2 installation])

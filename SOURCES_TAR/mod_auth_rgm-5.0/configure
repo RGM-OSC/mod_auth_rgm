@@ -592,8 +592,8 @@ PACKAGE_STRING=
 PACKAGE_BUGREPORT=
 PACKAGE_URL=
 
-ac_unique_file="src/mod_auth_eon"
-ac_unique_file="src/mod_auth_eon.c"
+ac_unique_file="src/mod_auth_rgm"
+ac_unique_file="src/mod_auth_rgm.c"
 # Factoring default headers for most tests.
 ac_includes_default="\
 #include <stdio.h>
@@ -2802,7 +2802,7 @@ fi
 
 # Define the identity of the package.
 
- PACKAGE=mod_auth_eon
+ PACKAGE=mod_auth_rgm
  VERSION=5.0
 
 
@@ -15553,7 +15553,7 @@ main ()
     *t++ = 0;
     if (s) return 0;
   }
-  { /* Someone thinks the Sun supposedly-ANSI compiler will reject this.  */
+  { /* Somrgme thinks the Sun supposedly-ANSI compiler will reject this.  */
     int x[] = {25, 17};
     const int *foo = &x[0];
     ++foo;

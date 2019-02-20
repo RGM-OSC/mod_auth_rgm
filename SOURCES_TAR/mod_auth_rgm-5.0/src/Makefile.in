@@ -120,16 +120,16 @@ am__uninstall_files_from_dir = { \
   }
 am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
-mod_auth_eon_la_DEPENDENCIES =
-am_mod_auth_eon_la_OBJECTS = mod_auth_eon.lo
-mod_auth_eon_la_OBJECTS = $(am_mod_auth_eon_la_OBJECTS)
+mod_auth_rgm_la_DEPENDENCIES =
+am_mod_auth_rgm_la_OBJECTS = mod_auth_rgm.lo
+mod_auth_rgm_la_OBJECTS = $(am_mod_auth_rgm_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-mod_auth_eon_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+mod_auth_rgm_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(AM_CFLAGS) $(CFLAGS) $(mod_auth_eon_la_LDFLAGS) $(LDFLAGS) \
+	$(AM_CFLAGS) $(CFLAGS) $(mod_auth_rgm_la_LDFLAGS) $(LDFLAGS) \
 	-o $@
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -165,8 +165,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(mod_auth_eon_la_SOURCES)
-DIST_SOURCES = $(mod_auth_eon_la_SOURCES)
+SOURCES = $(mod_auth_rgm_la_SOURCES)
+DIST_SOURCES = $(mod_auth_rgm_la_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -324,10 +324,10 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-lib_LTLIBRARIES = mod_auth_eon.la
-mod_auth_eon_la_SOURCES = mod_auth_eon.c
-mod_auth_eon_la_LDFLAGS = -version-info 4:2:3 -module $(MYSQLCLIENT_LIBFLAGS)
-mod_auth_eon_la_LIBADD = -l$(MYSQLCLIENT_LIB) -lz
+lib_LTLIBRARIES = mod_auth_rgm.la
+mod_auth_rgm_la_SOURCES = mod_auth_rgm.c
+mod_auth_rgm_la_LDFLAGS = -version-info 4:2:3 -module $(MYSQLCLIENT_LIBFLAGS)
+mod_auth_rgm_la_LIBADD = -l$(MYSQLCLIENT_LIB) -lz
 INCLUDES = -I$(APACHE2_INCLUDE) -I$(APR_INCLUDE) -I$(MYSQL_INCLUDE)
 all: all-am
 
@@ -399,8 +399,8 @@ clean-libLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
-mod_auth_eon.la: $(mod_auth_eon_la_OBJECTS) $(mod_auth_eon_la_DEPENDENCIES) $(EXTRA_mod_auth_eon_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(mod_auth_eon_la_LINK) -rpath $(libdir) $(mod_auth_eon_la_OBJECTS) $(mod_auth_eon_la_LIBADD) $(LIBS)
+mod_auth_rgm.la: $(mod_auth_rgm_la_OBJECTS) $(mod_auth_rgm_la_DEPENDENCIES) $(EXTRA_mod_auth_rgm_la_DEPENDENCIES) 
+	$(AM_V_CCLD)$(mod_auth_rgm_la_LINK) -rpath $(libdir) $(mod_auth_rgm_la_OBJECTS) $(mod_auth_rgm_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -408,7 +408,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mod_auth_eon.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mod_auth_rgm.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

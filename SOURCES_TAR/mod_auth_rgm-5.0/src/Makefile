@@ -60,10 +60,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/mod_auth_eon
-pkgincludedir = $(includedir)/mod_auth_eon
-pkglibdir = $(libdir)/mod_auth_eon
-pkglibexecdir = $(libexecdir)/mod_auth_eon
+pkgdatadir = $(datadir)/mod_auth_rgm
+pkgincludedir = $(includedir)/mod_auth_rgm
+pkglibdir = $(libdir)/mod_auth_rgm
+pkglibexecdir = $(libexecdir)/mod_auth_rgm
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -120,16 +120,16 @@ am__uninstall_files_from_dir = { \
   }
 am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
-mod_auth_eon_la_DEPENDENCIES =
-am_mod_auth_eon_la_OBJECTS = mod_auth_eon.lo
-mod_auth_eon_la_OBJECTS = $(am_mod_auth_eon_la_OBJECTS)
+mod_auth_rgm_la_DEPENDENCIES =
+am_mod_auth_rgm_la_OBJECTS = mod_auth_rgm.lo
+mod_auth_rgm_la_OBJECTS = $(am_mod_auth_rgm_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-mod_auth_eon_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+mod_auth_rgm_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(AM_CFLAGS) $(CFLAGS) $(mod_auth_eon_la_LDFLAGS) $(LDFLAGS) \
+	$(AM_CFLAGS) $(CFLAGS) $(mod_auth_rgm_la_LDFLAGS) $(LDFLAGS) \
 	-o $@
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
@@ -165,8 +165,8 @@ AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(mod_auth_eon_la_SOURCES)
-DIST_SOURCES = $(mod_auth_eon_la_SOURCES)
+SOURCES = $(mod_auth_rgm_la_SOURCES)
+DIST_SOURCES = $(mod_auth_rgm_la_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -192,7 +192,7 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /data/eonsrc/SOURCES/mod_auth_eon-5.0/autom4/missing aclocal-1.13
+ACLOCAL = ${SHELL} /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/autom4/missing aclocal-1.13
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 APACHE2_INCLUDE = /usr/include/httpd/
@@ -204,9 +204,9 @@ APR1_PREFIX = /usr
 APR_INCLUDE = /usr/include/apr-1
 APXS = /usr/bin/apxs
 AR = ar
-AUTOCONF = ${SHELL} /data/eonsrc/SOURCES/mod_auth_eon-5.0/autom4/missing autoconf
-AUTOHEADER = ${SHELL} /data/eonsrc/SOURCES/mod_auth_eon-5.0/autom4/missing autoheader
-AUTOMAKE = ${SHELL} /data/eonsrc/SOURCES/mod_auth_eon-5.0/autom4/missing automake-1.13
+AUTOCONF = ${SHELL} /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/autom4/missing autoconf
+AUTOHEADER = ${SHELL} /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/autom4/missing autoheader
+AUTOMAKE = ${SHELL} /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/autom4/missing automake-1.13
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -218,7 +218,7 @@ CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"mod_auth_eon\" -DVERSION=\"5.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_LIBZ=1 -DMAF_MYSQL_SSL=\"1\" -DHAVE_STRCHR=1 -DHAVE_STRRCHR=1 -DHAVE_STRSTR=1 -DHAVE_STRTOL=1
+DEFS = -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"mod_auth_rgm\" -DVERSION=\"5.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DHAVE_LIBZ=1 -DMAF_MYSQL_SSL=\"1\" -DHAVE_STRCHR=1 -DHAVE_STRRCHR=1 -DHAVE_STRSTR=1 -DHAVE_STRTOL=1
 DEPDIR = .deps
 DLLTOOL = false
 DSYMUTIL = 
@@ -243,7 +243,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /data/eonsrc/SOURCES/mod_auth_eon-5.0/autom4/missing makeinfo
+MAKEINFO = ${SHELL} /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/autom4/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 MYSQLCLIENT_LIB = mysqlclient_r
@@ -257,7 +257,7 @@ OBJDUMP = objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
-PACKAGE = mod_auth_eon
+PACKAGE = mod_auth_rgm
 PACKAGE_BUGREPORT = 
 PACKAGE_NAME = 
 PACKAGE_STRING = 
@@ -271,10 +271,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = strip
 VERSION = 5.0
-abs_builddir = /data/eonsrc/SOURCES/mod_auth_eon-5.0/src
-abs_srcdir = /data/eonsrc/SOURCES/mod_auth_eon-5.0/src
-abs_top_builddir = /data/eonsrc/SOURCES/mod_auth_eon-5.0
-abs_top_srcdir = /data/eonsrc/SOURCES/mod_auth_eon-5.0
+abs_builddir = /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/src
+abs_srcdir = /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/src
+abs_top_builddir = /data/rgmsrc/SOURCES/mod_auth_rgm-5.0
+abs_top_srcdir = /data/rgmsrc/SOURCES/mod_auth_rgm-5.0
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -304,7 +304,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /data/eonsrc/SOURCES/mod_auth_eon-5.0/autom4/install-sh
+install_sh = ${SHELL} /data/rgmsrc/SOURCES/mod_auth_rgm-5.0/autom4/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -324,10 +324,10 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-lib_LTLIBRARIES = mod_auth_eon.la
-mod_auth_eon_la_SOURCES = mod_auth_eon.c
-mod_auth_eon_la_LDFLAGS = -version-info 4:2:3 -module $(MYSQLCLIENT_LIBFLAGS)
-mod_auth_eon_la_LIBADD = -l$(MYSQLCLIENT_LIB) -lz
+lib_LTLIBRARIES = mod_auth_rgm.la
+mod_auth_rgm_la_SOURCES = mod_auth_rgm.c
+mod_auth_rgm_la_LDFLAGS = -version-info 4:2:3 -module $(MYSQLCLIENT_LIBFLAGS)
+mod_auth_rgm_la_LIBADD = -l$(MYSQLCLIENT_LIB) -lz
 INCLUDES = -I$(APACHE2_INCLUDE) -I$(APR_INCLUDE) -I$(MYSQL_INCLUDE)
 all: all-am
 
@@ -399,8 +399,8 @@ clean-libLTLIBRARIES:
 	  rm -f $${locs}; \
 	}
 
-mod_auth_eon.la: $(mod_auth_eon_la_OBJECTS) $(mod_auth_eon_la_DEPENDENCIES) $(EXTRA_mod_auth_eon_la_DEPENDENCIES) 
-	$(AM_V_CCLD)$(mod_auth_eon_la_LINK) -rpath $(libdir) $(mod_auth_eon_la_OBJECTS) $(mod_auth_eon_la_LIBADD) $(LIBS)
+mod_auth_rgm.la: $(mod_auth_rgm_la_OBJECTS) $(mod_auth_rgm_la_DEPENDENCIES) $(EXTRA_mod_auth_rgm_la_DEPENDENCIES) 
+	$(AM_V_CCLD)$(mod_auth_rgm_la_LINK) -rpath $(libdir) $(mod_auth_rgm_la_OBJECTS) $(mod_auth_rgm_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -408,7 +408,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/mod_auth_eon.Plo
+include ./$(DEPDIR)/mod_auth_rgm.Plo
 
 .c.o:
 	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

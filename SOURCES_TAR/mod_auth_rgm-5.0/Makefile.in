@@ -794,11 +794,11 @@ uninstall-am: uninstall-local
 
 install-exec-hook:
 	if test "$(APXS)" != "no"; then \
-		$(APXS) -i -n auth_eon src/mod_auth_eon.la; \
+		$(APXS) -i -n auth_rgm src/mod_auth_rgm.la; \
 	fi
 
 uninstall-local:
-	rm -f `$(APXS) -q LIBEXECDIR`/mod_auth_eon*;
+	rm -f `$(APXS) -q LIBEXECDIR`/mod_auth_rgm*;
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
