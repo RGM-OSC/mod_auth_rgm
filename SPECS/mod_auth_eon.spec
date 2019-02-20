@@ -1,14 +1,14 @@
 Summary: Apache2 EoN Authorization
 Name: mod_auth_eon
 Version: 5.0
-Release: 2.eon
+Release: 2.rgm
 Group: System Environment/Daemons
 License: Apache Software License
 URL: http://www.eyesofnetwork.com/
 
-Source: mod_auth_eon-%{version}-src.tar.gz
-Source1: auth_eon.conf
-Source2: 10-auth_eon.conf
+Source: mod_auth_rgm-%{version}-src.tar.gz
+Source1: auth_rgm.conf
+Source2: 10-auth_rgm.conf
 
 BuildRoot: %{_tmppath}/%{name}-root
 Requires: httpd, mariadb
@@ -44,10 +44,12 @@ install -m 644 %SOURCE2 $RPM_BUILD_ROOT%{_sysconfdir}/httpd/conf.modules.d/
 %defattr(-,root,root)
 %doc README
 %{_libdir}/httpd/modules/*.so
-%config(noreplace) %{_sysconfdir}/httpd/conf.d/auth_eon.conf
-%config(noreplace) %{_sysconfdir}/httpd/conf.modules.d/10-auth_eon.conf
+%config(noreplace) %{_sysconfdir}/httpd/conf.d/auth_rgm.conf
+%config(noreplace) %{_sysconfdir}/httpd/conf.modules.d/10-auth_rgm.conf
 
 %changelog
+* Wed Feb 19 2019 Michael Aubertin <maubertin@fr.scc.com> - 5.0-2.rgm
+- Initial fork
 * Tue Sep 27 2016 Jean-Philippe Levy <jeanphilippe.levy@gmail.com> - 5.0-2.eon
 - user_name at the end of cookie chain fix
 
