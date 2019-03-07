@@ -1,7 +1,7 @@
 Summary: Apache2 RGM Authorization
 Name: mod_auth_rgm
 Version: 5.0
-Release: 2.rgm
+Release: 3.rgm
 Group: System Environment/Daemons
 License: Apache Software License
 URL: http://www.eyesofnetwork.com/
@@ -48,8 +48,12 @@ install -m 644 %SOURCE2 $RPM_BUILD_ROOT%{_sysconfdir}/httpd/conf.modules.d/
 %config(noreplace) %{_sysconfdir}/httpd/conf.modules.d/10-auth_rgm.conf
 
 %changelog
+* Thu Mar 07 2019 Michael Aubertin <maubertin@fr.scc.com> - 5.0-3.rgm
+- Change directive names.
+
 * Wed Feb 19 2019 Michael Aubertin <maubertin@fr.scc.com> - 5.0-2.rgm
 - Initial fork
+
 * Tue Sep 27 2016 Jean-Philippe Levy <jeanphilippe.levy@gmail.com> - 5.0-2.eon
 - user_name at the end of cookie chain fix
 

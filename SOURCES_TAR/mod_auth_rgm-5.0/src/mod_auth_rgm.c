@@ -132,157 +132,157 @@ static auth_rgm_config global_config;
 static command_rec auth_rgm_cmds[] = 
 {
 
-	AP_INIT_TAKE1("AuthEonDefaultUser", auth_rgm_default_user, NULL, RSRC_CONF, "Default Remote User Option"),
+	AP_INIT_TAKE1("AuthrgmDefaultUser", auth_rgm_default_user, NULL, RSRC_CONF, "Default Remote User Option"),
 
-        AP_INIT_TAKE1 ("AuthEonRemoteUser", ap_set_string_slot,
+        AP_INIT_TAKE1 ("AuthrgmRemoteUser", ap_set_string_slot,
                 (void *) APR_OFFSETOF(auth_rgm_dir_config, remoteUser), OR_AUTHCFG,
                 "default remote user option"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLHost", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLHost", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbHost), OR_AUTHCFG, 
 		"mysql server host name"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLPort", ap_set_int_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLPort", ap_set_int_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbPort), OR_AUTHCFG, 
 		"mysql server port number"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLSocket", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLSocket", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbSocket), OR_AUTHCFG, 
 		"mysql server socket file"),
 #ifdef MAE_MYSQL_SSL
-	AP_INIT_FLAG  ("AuthEonMySQLSSL", ap_set_flag_slot, 
+	AP_INIT_FLAG  ("AuthrgmMySQLSSL", ap_set_flag_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbSsl), OR_AUTHCFG, 
 		"enable SSL for mysql connection"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLSSLKey", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLSSLKey", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbSslKey), OR_AUTHCFG, 
 		"mysql client certificate key file"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLSSLCert", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLSSLCert", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbSslCert), OR_AUTHCFG, 
 		"mysql client certificate file"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLSSLCA", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLSSLCA", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbSslCa), OR_AUTHCFG, 
 		"path to file listing trusted certificates"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLSSLCAPath", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLSSLCAPath", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbSslCaPath), OR_AUTHCFG, 
 		"path to directory containing PEM-formatted, trusted certificates"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLSSLCipherList", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLSSLCipherList", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbSslCipherList), OR_AUTHCFG, 
 		"list of SSL ciphers to allow (in 'openssl ciphers' format)"),
 #endif
-	AP_INIT_TAKE1 ("AuthEonMySQLUsername", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLUsername", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbUsername), OR_AUTHCFG, 
 		"mysql server user name"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLPassword", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLPassword", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbPassword), OR_AUTHCFG, 
 		"mysql server user password"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLDB", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLDB", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbName), OR_AUTHCFG, 
 		"mysql database name"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLTableSID", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLTableSID", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbTableSID), OR_AUTHCFG, 
 		"mysql session table"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLTableSIDCondition", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLTableSIDCondition", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbTableSIDCondition), OR_AUTHCFG, 
 		"condition used in session validation"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLTableGID", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLTableGID", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbTableGID), OR_AUTHCFG, 
 		"mysql group table"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLTableGIDCondition", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLTableGIDCondition", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbTableGIDCondition), OR_AUTHCFG, 
 		"condition to add to where-clause in group table queries"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLTableTracking", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLTableTracking", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbTableTracking), OR_AUTHCFG, 
 		"mysql tracking table"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLTableTrackingCondition", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLTableTrackingCondition", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbTableTrackingCondition), OR_AUTHCFG, 
 		"condition to add to where-clause in tracking table queries"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLFieldUID", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLFieldUID", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbFieldUID), OR_AUTHCFG, 
 		"mysql username field within group, session, and tracking tables"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLFieldGID", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLFieldGID", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbFieldGID), OR_AUTHCFG, 
 		"mysql group field within group table"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLFieldTimeout", ap_set_string_slot, 
+	AP_INIT_TAKE1 ("AuthrgmMySQLFieldTimeout", ap_set_string_slot, 
 		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbFieldTimeout), OR_AUTHCFG, 
 		"mysql session timeout date field within session table"),
 
-	AP_INIT_TAKE1 ("AuthEonMySQLFieldExpiration", ap_set_string_slot,
+	AP_INIT_TAKE1 ("AuthrgmMySQLFieldExpiration", ap_set_string_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbFieldExpiration), OR_AUTHCFG, 
 		"mysql session expiration date field within session table"),
 
-	AP_INIT_TAKE1("AuthEonMySQLFieldIPAddress", ap_set_string_slot,
+	AP_INIT_TAKE1("AuthrgmMySQLFieldIPAddress", ap_set_string_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbFieldIPAddress), OR_AUTHCFG, 
 		"mysql client IP address field within tracking table"),
 
-	AP_INIT_TAKE1("AuthEonMySQLFieldDownloadDate", ap_set_string_slot,
+	AP_INIT_TAKE1("AuthrgmMySQLFieldDownloadDate", ap_set_string_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbFieldDownloadDate), OR_AUTHCFG, 
 		"mysql download date field within tracking table"),
 
-	AP_INIT_TAKE1("AuthEonMySQLFieldDownloadPath", ap_set_string_slot,
+	AP_INIT_TAKE1("AuthrgmMySQLFieldDownloadPath", ap_set_string_slot,
 	 	(void *) APR_OFFSETOF(auth_rgm_dir_config, dbFieldDownloadPath), OR_AUTHCFG, 
 		"mysql download path field within tracking table"),
 
-	AP_INIT_TAKE1("AuthEonMySQLFieldDownloadSize", ap_set_string_slot,
+	AP_INIT_TAKE1("AuthrgmMySQLFieldDownloadSize", ap_set_string_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, dbFieldDownloadSize), OR_AUTHCFG, 
 		"mysql download size (in bytes) field within tracking table"),
 
-	AP_INIT_TAKE1("AuthEonSessionTimeout", ap_set_int_slot,
+	AP_INIT_TAKE1("AuthrgmSessionTimeout", ap_set_int_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, sessionTimeout), OR_AUTHCFG, 
 		"session inactivity timeout in minutes"),
 
-	AP_INIT_TAKE1("AuthEonSessionAutoRefresh", ap_set_int_slot,
+	AP_INIT_TAKE1("AuthrgmSessionAutoRefresh", ap_set_int_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, sessionAutoRefresh), OR_AUTHCFG, 
 		"how often in seconds to refresh a current page"),
 
-	AP_INIT_FLAG("AuthEonSessionCookies", ap_set_flag_slot,
+	AP_INIT_FLAG("AuthrgmSessionCookies", ap_set_flag_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, sessionCookies), OR_AUTHCFG, 
 		"If On, read from cookies for sessions, else read from the URL query string"),
 	
-	AP_INIT_FLAG("AuthEonSessionDelete", ap_set_flag_slot,
+	AP_INIT_FLAG("AuthrgmSessionDelete", ap_set_flag_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, sessionDelete), OR_AUTHCFG, 
 		"If On, remove expired sessions."),
 
-	AP_INIT_TAKE1("AuthEonTrackingLifetime", ap_set_int_slot,
+	AP_INIT_TAKE1("AuthrgmTrackingLifetime", ap_set_int_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, trackingLifetime), OR_AUTHCFG, 
 		"life-span (in days) of each tracking record in the tracking table"),
 
-	AP_INIT_TAKE1 ("AuthEonPageLogin", ap_set_string_slot,
+	AP_INIT_TAKE1 ("AuthrgmPageLogin", ap_set_string_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, pageLogin), OR_AUTHCFG, 
 		"(Absolute | Relative) URL location of the login page"),
 
-	AP_INIT_TAKE1 ("AuthEonPageExpired", ap_set_string_slot,
+	AP_INIT_TAKE1 ("AuthrgmPageExpired", ap_set_string_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, pageExpired), OR_AUTHCFG, 
 		"(Absolute | Relative) URL location of the 'session expired' page"),
 
-	AP_INIT_TAKE1 ("AuthEonPageNotAllowed", ap_set_string_slot,
+	AP_INIT_TAKE1 ("AuthrgmPageNotAllowed", ap_set_string_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, pageNotAllowed), OR_AUTHCFG, 
 		"(Absolute | Relative) URL location of the 'user not allowed' page"),
 
-	AP_INIT_TAKE1 ("AuthEonPageAutoRefresh", ap_set_string_slot,
+	AP_INIT_TAKE1 ("AuthrgmPageAutoRefresh", ap_set_string_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, pageAutoRefresh), OR_AUTHCFG, 
 		"(Absolute | Relative) URL location for the Refresh HTTP header (if applicable)"),
 
-	AP_INIT_TAKE1 ("AuthEonLastPageKey", ap_set_string_slot,
+	AP_INIT_TAKE1 ("AuthrgmLastPageKey", ap_set_string_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, lastPageKey), OR_AUTHCFG, 
 		"Query-string key containing the last unauthorized URL"),
 
-	AP_INIT_FLAG ("AuthEonAuthoritative", ap_set_flag_slot,
+	AP_INIT_FLAG ("AuthrgmAuthoritative", ap_set_flag_slot,
       		(void *) APR_OFFSETOF(auth_rgm_dir_config, authoritative), OR_AUTHCFG, 
 		"Whether or not this module handles authorization"), 
 
@@ -792,12 +792,12 @@ static int auth_rgm_redirect (request_rec *r, auth_rgm_dir_config *config, const
 #endif
     		apr_table_set (r->headers_out, "Location", new_url);
 
-    		ap_log_rerror (APLOG_MARK, log_level, 0, r, "AuthEon: %s - %s: redirect to %s", r->the_request, reason, page);
+    		ap_log_rerror (APLOG_MARK, log_level, 0, r, "Authrgm: %s - %s: redirect to %s", r->the_request, reason, page);
 
     		return HTTP_MOVED_TEMPORARILY;
 	}
 
-  	ap_log_rerror (APLOG_MARK, APLOG_ERR, 0, r, "AuthEon: %s - %s: redirecting from %s: target page not specified", r->the_request, reason, page);
+  	ap_log_rerror (APLOG_MARK, APLOG_ERR, 0, r, "Authrgm: %s - %s: redirecting from %s: target page not specified", r->the_request, reason, page);
 
   	return HTTP_FORBIDDEN;
 }
@@ -956,7 +956,7 @@ static unsigned char * auth_rgm_get_value (request_rec *r, const unsigned char *
     		}
   	}
 
-  	ap_log_rerror(APLOG_MARK, APLOG_INFO, 0, r, "AuthEon: %s - Could not find value for client key '%s'", r->the_request, key);
+  	ap_log_rerror(APLOG_MARK, APLOG_INFO, 0, r, "Authrgm: %s - Could not find value for client key '%s'", r->the_request, key);
 
   	return NULL;
 }
