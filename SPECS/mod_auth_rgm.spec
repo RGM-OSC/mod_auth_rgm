@@ -1,7 +1,7 @@
 Summary: Apache2 RGM Authorization
 Name: mod_auth_rgm
 Version: 5.0
-Release: 3.rgm
+Release: 4.rgm
 Group: System Environment/Daemons
 License: Apache Software License
 URL: http://www.eyesofnetwork.com/
